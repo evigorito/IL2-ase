@@ -1,0 +1,205 @@
+Time: Fri Jan 12 12:39:50 GMT 2018
+
+echo Running on master node: mrc-bsu-sand1
+
+[33mS[0megmented [33mHAP[0mlotype [33mE[0mstimation & [33mI[0mmputation [33mT[0mool
+  * Authors : Olivier Delaneau, Jared O'Connell, Jean-François Zagury, Jonathan Marchini
+  * Contact : send an email to the OXSTATGEN mail list https://www.jiscmail.ac.uk/cgi-bin/webadmin?A0=OXSTATGEN
+  * Webpage : https://mathgen.stats.ox.ac.uk/shapeit
+  * Version : v2.r837
+  * Date    : 12/01/2018 12:39:50
+  * LOGfile : [chr10.aligments3.log]
+
+MODE [33m-summarise[0m : GENERATING SUMMARY STATISTICS OF THE INPUT DATA
+  * Autosome (chr1 ... chr22)
+  * Reference panel of haplotypes used
+
+
+Parameters :
+  * Seed : 1515760790
+  * Parallelisation: 1 threads
+  * Ref allele is NOT aligned on the reference genome
+
+Reading individuals to exclude from input file in [exclude.inds]
+  * 1 individuals found in the exclude list
+
+Reading site list in [/mrc-bsu/scratch/ev250/ase-il2ra/objects/genoB37no_I_D_hetsample.bim]
+  * 488 sites included
+
+Reading sample list in [/mrc-bsu/scratch/ev250/ase-il2ra/objects/genoB37no_I_D_hetsample.fam]
+  * 64 samples included
+  * 1 samples excluded
+  * 64 unrelateds / 0 duos / 0 trios in 64 different families
+
+Reading genotypes in [/mrc-bsu/scratch/ev250/ase-il2ra/objects/genoB37no_I_D_hetsample.bed]
+  * Plink binary file SNP-major mode
+
+Reading sample list [/scratch/wallace/1000GP_Phase3/1000GP_Phase3.sample]
+  * 5008 reference haplotypes included
+
+Reading SNPs in [/scratch/wallace/1000GP_Phase3/1000GP_Phase3_chr10.legend.gz]
+  * 439 reference panel sites included
+  * 4013019 reference panel sites excluded
+
+[33mERROR:[0m Reference and Main panels are not well aligned:
+  * #Missing sites in reference panel = 47
+  * #Misaligned sites between panels = 2
+  * #Multiple alignments between panels = 0
+
+[33mS[0megmented [33mHAP[0mlotype [33mE[0mstimation & [33mI[0mmputation [33mT[0mool
+  * Authors : Olivier Delaneau, Jared O'Connell, Jean-François Zagury, Jonathan Marchini
+  * Contact : send an email to the OXSTATGEN mail list https://www.jiscmail.ac.uk/cgi-bin/webadmin?A0=OXSTATGEN
+  * Webpage : https://mathgen.stats.ox.ac.uk/shapeit
+  * Version : v2.r837
+  * Date    : 12/01/2018 12:40:03
+  * LOGfile : [shapeit_12012018_12h40m03s_e0b18ef8-575e-4790-ab60-bf6788114049.log]
+
+MODE [33m-phase[0m : PHASING GENOTYPE DATA
+  * Autosome (chr1 ... chr22)
+  * Window-based model (SHAPEIT v2)
+  * Reference panel of haplotypes used
+  * MCMC iteration
+
+Parameters :
+  * Seed : 1515760803
+  * Parallelisation: 16 threads
+  * Ref allele is NOT aligned on the reference genome
+  * MCMC: 35 iterations [7 B + 1 runs of 8 P + 20 M]
+  * Model: 100 states per window [100 H + 0 PM + 0 R + 0 COV ] / Windows of ~2.0 Mb / Ne = 15000
+
+Reading SNPs to exclude from input file in [/mrc-bsu/scratch/ev250/ase-il2ra/shapeit/chr10.aligments3.snp.strand.exclude]
+  * 49 snps found in the exclude list
+
+Reading individuals to exclude from input file in [exclude.inds]
+  * 1 individuals found in the exclude list
+
+Reading groups to include from input file in [group.list]
+  * 1 groups found in the include list
+
+Reading site list in [/mrc-bsu/scratch/ev250/ase-il2ra/objects/genoB37no_I_D_hetsample.bim]
+  * 439 sites included
+  * 49 sites excluded
+
+Reading sample list in [/mrc-bsu/scratch/ev250/ase-il2ra/objects/genoB37no_I_D_hetsample.fam]
+  * 64 samples included
+  * 1 samples excluded
+  * 64 unrelateds / 0 duos / 0 trios in 64 different families
+
+Reading genotypes in [/mrc-bsu/scratch/ev250/ase-il2ra/objects/genoB37no_I_D_hetsample.bed]
+  * Plink binary file SNP-major mode
+
+Reading sample list [/scratch/wallace/1000GP_Phase3/1000GP_Phase3.sample]
+  * 1006 reference haplotypes included
+  * 4002 reference haplotypes excluded
+
+Reading SNPs in [/scratch/wallace/1000GP_Phase3/1000GP_Phase3_chr10.legend.gz]
+  * 439 reference panel sites included
+  * 4013019 reference panel sites excluded
+
+Reading reference haplotypes in [/scratch/wallace/1000GP_Phase3/1000GP_Phase3_chr10.hap.gz]
+
+Reading genetic map in [/scratch/wallace/1000GP_Phase3/genetic_map_chr10_combined_b37.txt]
+  * 174660 genetic positions found
+  * #set=135 / #interpolated=304
+  * Physical map [6.03 Mb -> 6.14 Mb] / Genetic map [13.06 cM -> 13.25 cM]
+
+Checking missingness and MAF...
+  * 12 individuals with high rates of missing data (>5%)
+  * 412 SNPs with high rates of missing data (>5%)
+  * 32 monomorphic SNPs
+  * 389 missing genotypes automatically imputed at monomorphic SNPs
+  * 22 singletons SNPs
+
+Building graphs [1/64]Building graphs [2/64]Building graphs [3/64]Building graphs [4/64]Building graphs [15/64]Building graphs [16/64]Building graphs [7/64]Building graphs [8/64]Building graphs [9/64]Building graphs [10/64]Building graphs [11/64]Building graphs [12/64]Building graphs [13/64]Building graphs [14/64]Building graphs [5/64]Building graphs [6/64]Building graphs [17/64]Building graphs [18/64]Building graphs [19/64]Building graphs [20/64]Building graphs [21/64]Building graphs [22/64]Building graphs [23/64]Building graphs [24/64]Building graphs [25/64]Building graphs [26/64]Building graphs [27/64]Building graphs [28/64]Building graphs [29/64]Building graphs [30/64]Building graphs [31/64]Building graphs [32/64]Building graphs [33/64]Building graphs [34/64]Building graphs [35/64]Building graphs [36/64]Building graphs [37/64]Building graphs [38/64]Building graphs [39/64]Building graphs [40/64]Building graphs [41/64]Building graphs [42/64]Building graphs [43/64]Building graphs [44/64]Building graphs [45/64]Building graphs [46/64]Building graphs [47/64]Building graphs [48/64]Building graphs [49/64]Building graphs [50/64]Building graphs [51/64]Building graphs [52/64]Building graphs [53/64]Building graphs [54/64]Building graphs [55/64]Building graphs [56/64]Building graphs [57/64]Building graphs [58/64]Building graphs [59/64]Building graphs [60/64]Building graphs [61/64]Building graphs [62/64]Building graphs [63/64]Building graphs [64/64]Building graphs [64/64]
+  * 64 graphs / 3749 segments / ~7 SNPs per segment / 351208 transitions
+  * 0 haploids / 64 unrelateds / 0 duos / 0 trios
+  * 128 founder haplotypes
+  * 1006 reference haplotypes
+
+Sampling haplotypes [1/64]Sampling haplotypes [6/64]Sampling haplotypes [7/64]Sampling haplotypes [9/64]Sampling haplotypes [12/64]Sampling haplotypes [13/64]Sampling haplotypes [14/64]Sampling haplotypes [5/64]Sampling haplotypes [16/64]Sampling haplotypes [8/64]Sampling haplotypes [17/64]Sampling haplotypes [3/64]Sampling haplotypes [4/64]Sampling haplotypes [10/64]Sampling haplotypes [11/64]Sampling haplotypes [23/64]Sampling haplotypes [24/64]Sampling haplotypes [25/64]Sampling haplotypes [2/64]Sampling haplotypes [15/64]Sampling haplotypes [28/64]Sampling haplotypes [19/64]Sampling haplotypes [30/64]Sampling haplotypes [31/64]Sampling haplotypes [34/64]Sampling haplotypes [26/64]Sampling haplotypes [18/64]Sampling haplotypes [27/64]Sampling haplotypes [40/64]Sampling haplotypes [43/64]Sampling haplotypes [20/64]Sampling haplotypes [46/64]Sampling haplotypes [33/64]Sampling haplotypes [22/64]Sampling haplotypes [35/64]Sampling haplotypes [48/64]Sampling haplotypes [36/64]Sampling haplotypes [37/64]Sampling haplotypes [38/64]Sampling haplotypes [39/64]Sampling haplotypes [54/64]Sampling haplotypes [29/64]Sampling haplotypes [42/64]Sampling haplotypes [44/64]Sampling haplotypes [57/64]Sampling haplotypes [58/64]Sampling haplotypes [41/64]Sampling haplotypes [45/64]Sampling haplotypes [21/64]Sampling haplotypes [47/64]Sampling haplotypes [49/64]Sampling haplotypes [50/64]Sampling haplotypes [51/64]Sampling haplotypes [52/64]Sampling haplotypes [60/64]Sampling haplotypes [61/64]Sampling haplotypes [55/64]Sampling haplotypes [56/64]Sampling haplotypes [32/64]Sampling haplotypes [59/64]Sampling haplotypes [53/64]Sampling haplotypes [62/64]Sampling haplotypes [63/64]Sampling haplotypes [64/64]Sampling haplotypes [64/64]
+
+Burn-in iteration [1/7] [16/64]Burn-in iteration [1/7] [32/64]Burn-in iteration [1/7] [48/64]Burn-in iteration [1/7] [64/64]
+
+Burn-in iteration [2/7] [16/64]Burn-in iteration [2/7] [32/64]Burn-in iteration [2/7] [48/64]Burn-in iteration [2/7] [64/64]
+
+Burn-in iteration [3/7] [16/64]Burn-in iteration [3/7] [32/64]Burn-in iteration [3/7] [48/64]Burn-in iteration [3/7] [64/64]
+
+Burn-in iteration [4/7] [16/64]Burn-in iteration [4/7] [32/64]Burn-in iteration [4/7] [48/64]Burn-in iteration [4/7] [64/64]
+
+Burn-in iteration [5/7] [16/64]Burn-in iteration [5/7] [32/64]Burn-in iteration [5/7] [48/64]Burn-in iteration [5/7] [64/64]
+
+Burn-in iteration [6/7] [16/64]Burn-in iteration [6/7] [32/64]Burn-in iteration [6/7] [48/64]Burn-in iteration [6/7] [64/64]
+
+Burn-in iteration [7/7] [16/64]Burn-in iteration [7/7] [32/64]Burn-in iteration [7/7] [48/64]Burn-in iteration [7/7] [64/64]
+
+Pruning iteration [1/8] [16/64]Pruning iteration [1/8] [32/64]Pruning iteration [1/8] [48/64]Pruning iteration [1/8] [64/64]
+
+Pruning iteration [2/8] [16/64]Pruning iteration [2/8] [32/64]Pruning iteration [2/8] [48/64]Pruning iteration [2/8] [64/64]
+
+Pruning iteration [3/8] [16/64]Pruning iteration [3/8] [32/64]Pruning iteration [3/8] [48/64]Pruning iteration [3/8] [64/64]
+
+Pruning iteration [4/8] [16/64]Pruning iteration [4/8] [32/64]Pruning iteration [4/8] [48/64]Pruning iteration [4/8] [64/64]
+
+Pruning iteration [5/8] [16/64]Pruning iteration [5/8] [32/64]Pruning iteration [5/8] [48/64]Pruning iteration [5/8] [64/64]
+
+Pruning iteration [6/8] [16/64]Pruning iteration [6/8] [32/64]Pruning iteration [6/8] [48/64]Pruning iteration [6/8] [64/64]
+
+Pruning iteration [7/8] [16/64]Pruning iteration [7/8] [32/64]Pruning iteration [7/8] [48/64]Pruning iteration [7/8] [64/64]
+
+Pruning iteration [8/8] [16/64]Pruning iteration [8/8] [32/64]Pruning iteration [8/8] [48/64]Pruning iteration [8/8] [64/64]
+
+Pruning graphs [1/64]Pruning graphs [3/64]Pruning graphs [2/64]Pruning graphs [4/64]Pruning graphs [5/64]Pruning graphs [10/64]Pruning graphs [11/64]Pruning graphs [8/64]Pruning graphs [9/64]Pruning graphs [6/64]Pruning graphs [7/64]Pruning graphs [12/64]Pruning graphs [13/64]Pruning graphs [14/64]Pruning graphs [15/64]Pruning graphs [16/64]Pruning graphs [18/64]Pruning graphs [19/64]Pruning graphs [17/64]Pruning graphs [20/64]Pruning graphs [21/64]Pruning graphs [22/64]Pruning graphs [23/64]Pruning graphs [24/64]Pruning graphs [25/64]Pruning graphs [26/64]Pruning graphs [27/64]Pruning graphs [28/64]Pruning graphs [29/64]Pruning graphs [30/64]Pruning graphs [31/64]Pruning graphs [32/64]Pruning graphs [33/64]Pruning graphs [34/64]Pruning graphs [35/64]Pruning graphs [36/64]Pruning graphs [37/64]Pruning graphs [38/64]Pruning graphs [39/64]Pruning graphs [40/64]Pruning graphs [41/64]Pruning graphs [42/64]Pruning graphs [43/64]Pruning graphs [44/64]Pruning graphs [45/64]Pruning graphs [46/64]Pruning graphs [47/64]Pruning graphs [48/64]Pruning graphs [49/64]Pruning graphs [50/64]Pruning graphs [51/64]Pruning graphs [52/64]Pruning graphs [53/64]Pruning graphs [54/64]Pruning graphs [55/64]Pruning graphs [56/64]Pruning graphs [57/64]Pruning graphs [58/64]Pruning graphs [59/64]Pruning graphs [60/64]Pruning graphs [61/64]Pruning graphs [62/64]Pruning graphs [63/64]Pruning graphs [64/64]Pruning graphs [64/64]
+  * 64 graphs / 914 segments / ~30 SNPs per segment / 12518 transitions
+  * 0 haploids / 64 unrelateds / 0 duos / 0 trios
+  * 128 founder haplotypes
+  * 1006 reference haplotypes
+
+Main iteration [1/20] [16/64]Main iteration [1/20] [32/64]Main iteration [1/20] [48/64]Main iteration [1/20] [64/64]
+
+Main iteration [2/20] [16/64]Main iteration [2/20] [32/64]Main iteration [2/20] [48/64]Main iteration [2/20] [64/64]
+
+Main iteration [3/20] [16/64]Main iteration [3/20] [32/64]Main iteration [3/20] [48/64]Main iteration [3/20] [64/64]
+
+Main iteration [4/20] [16/64]Main iteration [4/20] [32/64]Main iteration [4/20] [48/64]Main iteration [4/20] [64/64]
+
+Main iteration [5/20] [16/64]Main iteration [5/20] [32/64]Main iteration [5/20] [48/64]Main iteration [5/20] [64/64]
+
+Main iteration [6/20] [16/64]Main iteration [6/20] [32/64]Main iteration [6/20] [48/64]Main iteration [6/20] [64/64]
+
+Main iteration [7/20] [16/64]Main iteration [7/20] [32/64]Main iteration [7/20] [48/64]Main iteration [7/20] [64/64]
+
+Main iteration [8/20] [16/64]Main iteration [8/20] [32/64]Main iteration [8/20] [48/64]Main iteration [8/20] [64/64]
+
+Main iteration [9/20] [16/64]Main iteration [9/20] [32/64]Main iteration [9/20] [48/64]Main iteration [9/20] [64/64]
+
+Main iteration [10/20] [16/64]Main iteration [10/20] [32/64]Main iteration [10/20] [48/64]Main iteration [10/20] [64/64]
+
+Main iteration [11/20] [16/64]Main iteration [11/20] [32/64]Main iteration [11/20] [48/64]Main iteration [11/20] [64/64]
+
+Main iteration [12/20] [16/64]Main iteration [12/20] [32/64]Main iteration [12/20] [48/64]Main iteration [12/20] [64/64]
+
+Main iteration [13/20] [16/64]Main iteration [13/20] [32/64]Main iteration [13/20] [48/64]Main iteration [13/20] [64/64]
+
+Main iteration [14/20] [16/64]Main iteration [14/20] [32/64]Main iteration [14/20] [48/64]Main iteration [14/20] [64/64]
+
+Main iteration [15/20] [16/64]Main iteration [15/20] [32/64]Main iteration [15/20] [48/64]Main iteration [15/20] [64/64]
+
+Main iteration [16/20] [16/64]Main iteration [16/20] [32/64]Main iteration [16/20] [48/64]Main iteration [16/20] [64/64]
+
+Main iteration [17/20] [16/64]Main iteration [17/20] [32/64]Main iteration [17/20] [48/64]Main iteration [17/20] [64/64]
+
+Main iteration [18/20] [16/64]Main iteration [18/20] [32/64]Main iteration [18/20] [48/64]Main iteration [18/20] [64/64]
+
+Main iteration [19/20] [16/64]Main iteration [19/20] [32/64]Main iteration [19/20] [48/64]Main iteration [19/20] [64/64]
+
+Main iteration [20/20] [16/64]Main iteration [20/20] [32/64]Main iteration [20/20] [48/64]Main iteration [20/20] [64/64]
+
+Normalising graphs [1/64]Normalising graphs [2/64]Normalising graphs [5/64]Normalising graphs [9/64]Normalising graphs [11/64]Normalising graphs [14/64]Normalising graphs [4/64]Normalising graphs [19/64]Normalising graphs [20/64]Normalising graphs [12/64]Normalising graphs [22/64]Normalising graphs [23/64]Normalising graphs [3/64]Normalising graphs [25/64]Normalising graphs [26/64]Normalising graphs [27/64]Normalising graphs [28/64]Normalising graphs [29/64]Normalising graphs [30/64]Normalising graphs [31/64]Normalising graphs [32/64]Normalising graphs [33/64]Normalising graphs [21/64]Normalising graphs [6/64]Normalising graphs [36/64]Normalising graphs [37/64]Normalising graphs [38/64]Normalising graphs [39/64]Normalising graphs [40/64]Normalising graphs [41/64]Normalising graphs [42/64]Normalising graphs [43/64]Normalising graphs [44/64]Normalising graphs [45/64]Normalising graphs [46/64]Normalising graphs [47/64]Normalising graphs [48/64]Normalising graphs [49/64]Normalising graphs [16/64]Normalising graphs [51/64]Normalising graphs [52/64]Normalising graphs [53/64]Normalising graphs [8/64]Normalising graphs [55/64]Normalising graphs [34/64]Normalising graphs [35/64]Normalising graphs [58/64]Normalising graphs [59/64]Normalising graphs [15/64]Normalising graphs [61/64]Normalising graphs [17/64]Normalising graphs [7/64]Normalising graphs [18/64]Normalising graphs [54/64]Normalising graphs [10/64]Normalising graphs [56/64]Normalising graphs [57/64]Normalising graphs [13/64]Normalising graphs [24/64]Normalising graphs [60/64]Normalising graphs [50/64]Normalising graphs [62/64]Normalising graphs [63/64]Normalising graphs [64/64]Normalising graphs [64/64]
+
+Solving haplotypes [1/64]Solving haplotypes [2/64]Solving haplotypes [5/64]Solving haplotypes [3/64]Solving haplotypes [9/64]Solving haplotypes [12/64]Solving haplotypes [15/64]Solving haplotypes [16/64]Solving haplotypes [8/64]Solving haplotypes [11/64]Solving haplotypes [10/64]Solving haplotypes [21/64]Solving haplotypes [22/64]Solving haplotypes [13/64]Solving haplotypes [24/64]Solving haplotypes [7/64]Solving haplotypes [26/64]Solving haplotypes [27/64]Solving haplotypes [28/64]Solving haplotypes [17/64]Solving haplotypes [18/64]Solving haplotypes [30/64]Solving haplotypes [20/64]Solving haplotypes [33/64]Solving haplotypes [23/64]Solving haplotypes [14/64]Solving haplotypes [34/64]Solving haplotypes [35/64]Solving haplotypes [36/64]Solving haplotypes [37/64]Solving haplotypes [38/64]Solving haplotypes [39/64]Solving haplotypes [40/64]Solving haplotypes [41/64]Solving haplotypes [42/64]Solving haplotypes [44/64]Solving haplotypes [31/64]Solving haplotypes [46/64]Solving haplotypes [4/64]Solving haplotypes [50/64]Solving haplotypes [51/64]Solving haplotypes [53/64]Solving haplotypes [25/64]Solving haplotypes [45/64]Solving haplotypes [58/64]Solving haplotypes [60/64]Solving haplotypes [32/64]Solving haplotypes [47/64]Solving haplotypes [48/64]Solving haplotypes [63/64]Solving haplotypes [52/64]Solving haplotypes [6/64]Solving haplotypes [43/64]Solving haplotypes [54/64]Solving haplotypes [55/64]Solving haplotypes [56/64]Solving haplotypes [57/64]Solving haplotypes [29/64]Solving haplotypes [59/64]Solving haplotypes [19/64]Solving haplotypes [61/64]Solving haplotypes [62/64]Solving haplotypes [49/64]Solving haplotypes [64/64]Solving haplotypes [64/64]
+
+Writing sample list in [il2ra.noindels.bbfam.phased.with.ref.sample]
+
+Writing site list and haplotypes in [il2ra.noindels.bbfam.phased.with.ref.haps]
+
+Running time: 141 seconds

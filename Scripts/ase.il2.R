@@ -134,7 +134,7 @@ u.noindels[,gendis:=0]
 bmart <- useMart(biomart="ENSEMBL_MART_SNP",dataset="hsapiens_snp", host="grch37.ensembl.org", path="/biomart/martservice")
 snpcheck = unique(rbindlist(lapply(1:nrow(u.noindels), function(i) data.table(getBM(attributes = c('refsnp_id','allele','chrom_start'), filters = c('chr_name','start','end'), values=list(u.noindels[i,Chr], u.noindels[i,b37], u.noindels[i,b37] +1) ,mart=bmart)))))
 
-## remove indels from snpcheck
+## remove indels from snpcheck as shapeit doesnt work with indels
 
 idls <- which(sapply(strsplit(gsub("/","",snpcheck$allele),""), function(i) "-" %in% i))
 snpcheck <- snpcheck[-idls,]
@@ -260,7 +260,7 @@ plink --ped genoB37no_I_D_hetsample.ped --map snpsB37no_I_D.map --make-bed --out
 
 /mrc-bsu/scratch/ev250/bin/gtool -P --ped genoB37no_I_D_hetsample.ped --map snpsB37no_I_D.map --og genoB37no_I_D_hetsample.gen --os genoB37no_I_D_hetsample.sample
 
-## files are OK but as with bed/bim/fam the selection of which allele is rf and which one is alt is unpredictable, and different from bim/bed/fam.
+## files are OK but as with bed/bim/fam the selection of which allele is ref and which one is alt is unpredictable, and different from bim/bed/fam.
 
 ######################################################################################
 ################################# Post-phasing ######################################
@@ -292,7 +292,7 @@ sam.AS <- merge(ASE,samples, by.x="Donor", by.y="V1", all=T)
 
 ############################################ strategy 2 ############################################
 
-### A using ped.f and map for phasing #########################
+### (A) using ped.f and map for phasing #########################
 
 samples2 <- fread("cat /mrc-bsu/scratch/ev250/ase-il2ra/shapeit/il2ra.noindels.het.phased.with.ref.sample | cut -d' ' -f1 | tail -n+3", header=F) ## remove first 2 rows
 
@@ -308,7 +308,7 @@ samples2[,V1:=toupper(V1)]
 sam.AS2 <- merge(ASE,samples2, by.x="Donor", by.y="V1", all=T)
 
 
-##### B using bed bim fam for phasing and excluding "fake" sample  when running shapit #########################
+##### (B) using bed bim fam for phasing and excluding "fake" sample  when running shapit #########################
 samples3 <- fread("cat /mrc-bsu/scratch/ev250/ase-il2ra/shapeit/il2ra.noindels.bbfam.phased.with.ref.sample | cut -d' ' -f1 | tail -n+3", header=F) ## remove first 2 rows
 
 haps.samp3 <- fread("/mrc-bsu/scratch/ev250/ase-il2ra/shapeit/il2ra.noindels.bbfam.phased.with.ref.haps", header=F)
@@ -319,7 +319,10 @@ samples3 <- phased.r(samples3,haps.samp3, haps.D)
 
 ## add ASE, recode "ASE" Donor to uppercase and the same for "samples" V1
 samples3[,V1:=toupper(V1)]          
-sam.AS3 <- merge(ASE,samples3, by.x="Donor", by.y="V1", all=TRUE)
+sam.AS3 <- merge(ASE[,Donor:=toupper(Donor)],samples3, by.x="Donor", by.y="V1", all=TRUE)
+
+####
+
 
 
 ###############################################################################################
@@ -336,6 +339,20 @@ ped.d <- r.ped(ped.d,haps.samp)
 
 cons <- h.p.comp(ped.d,h.ped,snps.d)
 
+
+## STRATEGY B, excluding fake sample:
+
+##I run the shapeit script shapeit_no_indels_bin_bed_fam_graph.sh to get phasing uncertainty for SNPs rs122244380 (ASE), rs61839660 (A hap) and rs56382813 (D).
+
+h.fq <- fread("zcat /mrc-bsu/scratch/ev250/ase-il2ra/shapeit/hap.uncertainty.freqs.gz", header=F)
+s.pairs <- fread("zcat /mrc-bsu/scratch/ev250/ase-il2ra/shapeit/hap.uncertainty.pairs.gz", header=F)
+
+s.pairs[,V2:=toupper(V2)]
+
+## get samples with p(H) <1
+pH.low <- s.pairs[V7<1,]
+
+## some samples have low phasing quality, mainly those with only tag snps input.
 
 ####################################################################################
 ##################### Description of haplotype combinations ########################
@@ -489,7 +506,10 @@ ggplot(sam.A3,aes(x=ACDEF.pair, y=ASE.hap2, fill=Phasing, label=Donor)) + geom_d
 ## remove hap.pair and save sam.A3
 sam.A3[,hap.pair:=NULL]
 
-write.table(sam.A3, '/mrc-bsu/scratch/ev250/ase-il2ra/objects/haps.phasing.439snps.Ap495p.txt')
+write.table(sam.A3, '/mrc-bsu/scratch/ev250/ase-il2ra/objects/haps.phasing.439snps.Ap495p.txt', row.names=F)
+
+## same samples with the A protective hap have a broad range of ASE. One sample can be explained by phasing quality, see above for QC files in QC section, but not the other 2.
+
 ####################################################################################################
 ################################## Modelling effect of hapA as random effect ######################
 
@@ -514,7 +534,16 @@ samAS3.r[,CDEF.g:=paste0(CDEF.1,"|",  CDEF.2)]
 
 re.lm <- lmer(ASE.hap2 ~ A + (1|CDEF.g), data = samAS3.r) 
 
-write.table(samAS3.r, '/mrc-bsu/scratch/ev250/ase-il2ra/objects/haps.phasing.ran.eff.input.txt')
+write.table(samAS3.r, '/mrc-bsu/scratch/ev250/ase-il2ra/objects/haps.phasing.ran.eff.input.txt', row.names=F)
 
 ##plot
 ggplot(samAS3.r,aes(x=CDEF.g, y=ASE.hap2, color=as.factor(A))) + geom_point()+ theme(axis.text.x = element_text(angle = 45, hjust = 1))  + geom_hline(yintercept = 50,linetype="dashed") +  xlab("CDEF(hap1|hap2)") + ylab("Hap2 ASE (%)")  + theme(panel.grid.major.x = element_line(color = "grey80"))
+
+## run fixed effects regression
+
+fix.lm <- lm(ASE.hap2 ~ A +1, data=samAS3.r)
+
+## run random slope model: doesnt run
+
+rs.lm <- lmer(ASE.hap2 ~ A + (A|CDEF.g), data = samAS3.r) 
+
